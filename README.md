@@ -82,6 +82,8 @@
 
 ## Specifications
 	
+	Printer+ works on devices with Android API 15 or higher.
+
 	This SDK currently serves for the following:
 
 **Print Text**: 	Unicode characters, use your thermal printer without any limitation 
@@ -100,4 +102,89 @@ on some models we have place one by default to work fine.
 	Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
 	Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
 	Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
+
+## Advanced usage
+
+	You need and instance of StructReport
+
+		//java code
+		StructReport msr = new StructReport();
+	
+### How to PRINT TEXT
+
+		//This examples requires this imports
+		import es.rcti.printerplus.printcom.models.PrintTool;
+		import es.rcti.printerplus.printcom.models.StructReport;
+
+		//To align the text you can use one of this three
+		//ALIGNMENT_CENTER, ALIGNMENT_LEFT or ALIGNMENT_RIGHT
+		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER ); //Example with center alignment
+
+		//To enable or disable bolding use
+		msr.addTextBold(false);
+
+		//To enable or disable underline use
+		msr.addTextUnderlined(false);
+
+		//To enable or disable reverse mode use
+		msr.addTextReverseMode(false);
+
+		//To set font size, ther are 8 sizes, this goes since SIZE_FONT_1 to SIZE_FONT_8
+		msr.addItemSizeFont( StructReport.SIZE_FONT_1 );
+
+		//To print text with the previous configuration use
+		msr.addText("Hello");
+
+		//To send cut order use this.
+		msr.addCut();
+
+		//To send this instruction to Printer+ use
+		PrintTool.sendOrder(MainActivity.this, msr);
+
+
+
+**Another example of print text with unicode wrote on code**
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button btn = (Button) findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StructReport msr = new StructReport();
+
+                //SOME PREVIOUS CONFIGURATION
+                msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+                msr.addTextBold(false);
+                msr.addTextUnderlined(false);
+                msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
+
+                //TEXT PRINT
+                msr.addText("Good Job! "+getEmojiByUnicode(0x1f44D));
+
+                msr.addCut();
+
+                PrintTool.sendOrder(MainActivity.this, msr);
+            }
+        });
+    }
+
+    public String getEmojiByUnicode(int unicode){
+        return new String(Character.toChars(unicode));
+    }		
+
+**Note:** to print unicode from a EditText, you don't have to do anything.
+
+	//Example getting content from a EditText with unicode characters
+	//to write emojis or any character
+	msr.addText(myEditTextVar.getText().toString());
+
+
+### How to PRINT BARCODE
+
+
+
 
