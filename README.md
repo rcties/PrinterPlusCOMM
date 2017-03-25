@@ -46,4 +46,4 @@
 
 		https://play.google.com/store/apps/details?id=es.rcti.printerplus
 
-	![Download QR](img/qr_download.png)
+	![Download QR](https://github.com/rcties/PrinterPlusCOMM/blob/master/img/qr_download.png)
