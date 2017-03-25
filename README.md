@@ -10,6 +10,10 @@
 	specification for each printer builder, you just need to know how to 
 	program in java.
 
+### Example of use
+
+![Download Link](/img/qr_download.png)	
+
 ## Download
 
 	Download the latest version from jcenter via Gradle:
