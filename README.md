@@ -46,4 +46,4 @@
 
 		https://play.google.com/store/apps/details?id=es.rcti.printerplus
 
-	![Download Link](/img/qr_download.png?raw=true "Download Link")
+	![Download Link](img/qr_download.png?raw=true "Download Link")
