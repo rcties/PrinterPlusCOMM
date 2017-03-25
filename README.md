@@ -84,20 +84,20 @@
 	
 	This SDK currently serves for the following:
 
-	**Print Text**: 	Unicode characters, use your thermal printer without any limitation 
-	of code pages to print any character on any language.
+**Print Text**: 	Unicode characters, use your thermal printer without any limitation 
+of code pages to print any character on any language.
 
-	**Print Images**: You can print images of your device, we recommend you to use images 
-	with max-width 400 pixels to work on most printers.
+**Print Images**: You can print images of your device, we recommend you to use images 
+with max-width 400 pixels to work on most printers.
 
-	**Print Barcodes**: You can select and print different type of barcode to print, but 
-	on some models we have place one by default to work fine.
+**Print Barcodes**: You can select and print different type of barcode to print, but 
+on some models we have place one by default to work fine.
 
-	**Print QR**: NOT WORKING YET. We will add this feature in a few days.
+**Print QR**: NOT WORKING YET. We will add this feature in a few days.
 
-	**Brands and models**:
+**Brands and models**:
 
-		Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
-		Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
-		Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
+	Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
+	Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
+	Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
 
