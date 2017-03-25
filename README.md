@@ -47,3 +47,57 @@
 		https://play.google.com/store/apps/details?id=es.rcti.printerplus
 
 ![Download Link](/img/qr_download.png)
+
+### Step 2: Download Module to your project
+
+	On your build.gradle add this line (autodownload).
+
+		compile 'es.rcti:printcom:1.1.0'
+
+### Step 3: Let's use the library
+
+	On your MainActivity.java or *.java where you want to place it.
+	Write this lines.
+
+		//Note: This lines could be inside of onclick implementation of a button
+		//to be executed on demand
+
+		//New instance
+		StructReport msr = new StructReport();
+
+        //Some previous configuration
+        msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+        msr.addTextBold(false);
+        msr.addTextUnderlined(false);
+        msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
+
+        //Print some text
+        msr.addText("Hello World!");
+
+        //Instruction to cut paper
+        msr.addCut();
+
+        //Instruction to send to Printer+ to be printed.
+        PrintTool.sendOrder(MainActivity.this, msr);
+
+## Specifications
+	
+	This SDK currently serves for the following:
+
+	- **Print Text**: 	Unicode characters, use your thermal printer without any limitation 
+						of code pages to print any character on any language.
+
+	- **Print Images**: You can print images of your device, we recommend you to use images 
+						with max-width 400 pixels to work on most printers.
+
+	- **Print Barcodes**: You can select and print different type of barcode to print, but 
+						on some models we have place one by default to work fine.
+
+	- **Print QR**: NOT WORKING YET. We will add this feature in a few days.
+
+	- **Brands and models**:
+
+		Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
+		Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
+		Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
+
