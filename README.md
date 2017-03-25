@@ -105,16 +105,16 @@ on some models we have place one by default to work fine.
 
 ## Advanced usage
 
-	You need and instance of StructReport
+	//This examples requires this imports
+		import es.rcti.printerplus.printcom.models.PrintTool;
+		import es.rcti.printerplus.printcom.models.StructReport;
+
+	You need an instance of StructReport
 
 		//java code
 		StructReport msr = new StructReport();
 	
 ### How to PRINT TEXT
-
-		//This examples requires this imports
-		import es.rcti.printerplus.printcom.models.PrintTool;
-		import es.rcti.printerplus.printcom.models.StructReport;
 
 		//To align the text you can use one of this three
 		//ALIGNMENT_CENTER, ALIGNMENT_LEFT or ALIGNMENT_RIGHT
@@ -183,7 +183,64 @@ on some models we have place one by default to work fine.
 	msr.addText(myEditTextVar.getText().toString());
 
 
-### How to PRINT BARCODE
+### How to PRINT BARCODES
+
+	Print Barcodes is so easy. You have the following features to setting up your barcode
+	-HRI: below, above, both and none
+	-ALIGNMENT: left, center and right.
+	-TYPE: code93, code128, ITF, EAN13, ..., etc.
+	-HEIGHT and WIDTH
+
+	Example of barcode with HRI below
+		
+		//By default each brand of printer are set to a barcode which is working fine, by
+		//this reason if you want is not necessary to set a type.
+
+		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+		msr.addBarcodeHRI( StructReport.BARCODE_HRI_BELOW );
+		msr.addBarcodeData( "1234567890128" );
+		msr.addCut();
+		PrintTool.sendOrder(MainActivity.this, msr);
+
+### How to PRINT IMAGES
+
+	Print images is easy. You have the following features to setting up your images
+	-ALIGNMENT: left, center and right.
+	-Path or Bitmap content
+
+	There are two ways to print images:
+
+	-Full path to file:
+
+		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+		msr.addImagePath("your/path/to/file/*.png"); // PNGs works on most cases
+		msr.addCut();
+		PrintTool.sendOrder(MainActivity.this, msr);
+
+	-Bitmap:
+
+		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+		msr.addImageBitmap( myBitmapVar );
+		msr.addCut();
+		PrintTool.sendOrder(MainActivity.this, msr);
+
+
+## Contact us
+
+Please contact us for any suggestion.
+
+	email: soporte@rcti.es
+
+## Visit us
+
+Find us at: 
+
+	https://www.rcti.es
+
+
+
+
+
 
 
 
