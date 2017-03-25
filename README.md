@@ -12,7 +12,9 @@
 
 ### Example of use
 
-![Download Link](/img/qr_download.png)	
+	This is a POS+ receipt implementation with this SDK.
+
+![Download Link](/img/receipt.png)	
 
 ## Download
 
