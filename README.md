@@ -43,6 +43,7 @@
 ### Step 1: Download Printer+ on your testing device
 
 	You can get it from google play: 
+
 		https://play.google.com/store/apps/details?id=es.rcti.printerplus
 
-	![Download QR]('./img/qr_download.png')
+	![Download QR](img/qr_download.png)
