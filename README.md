@@ -2,25 +2,25 @@
 
 ## Introduction
 
-	Android library for Printer+ SDK, that provides easy to use different 
-	thermal printers via wifi, usb and bluetooth each one of different 
-	providers in a simple instructions.
+Android library for Printer+ SDK, that provides easy to use different 
+thermal printers via wifi, usb and bluetooth each one of different 
+providers in a simple instructions.
 	
-	So to use this tool, you don't need to know about ESC/POS and 
-	specification for each printer builder, you just need to know how to 
-	program in java.
+So to use this tool, you don't need to know about ESC/POS and 
+specification for each printer builder, you just need to know how to 
+program in java.
 
 ### Example of use
 
-	This is a POS+ receipt implementated with this SDK.
+This is a POS+ receipt implementated with this SDK.
 
 ![Download Link](/img/receipt.png)	
 
 ## Download
 
-	Download the latest version from jcenter via Gradle:
+Download the latest version from jcenter via Gradle:
 
-		compile 'es.rcti:printcom:1.1.0'
+	compile 'es.rcti:printcom:1.1.0'
 
 ## License
 
@@ -40,57 +40,57 @@
 	
 ## ProGuard
 
-	If you are using ProGuard you might need to add the following option:
+If you are using ProGuard you might need to add the following option:
 
-		-keep class es.rcti.printerplus.printcom.** { *; }
+	-keep class es.rcti.printerplus.printcom.** { *; }
 
 ## Installation steps & how to use
 
 ### Step 1: Download Printer+ on your testing device
 
-	You can get it from google play: 
+You can get it from google play: 
 
-		https://play.google.com/store/apps/details?id=es.rcti.printerplus
+	https://play.google.com/store/apps/details?id=es.rcti.printerplus
 
 ![Download Link](/img/qr_download.png)
 
 ### Step 2: Download Module to your project
 
-	On your build.gradle add this line (autodownload).
+On your build.gradle add this line (autodownload).
 
-		compile 'es.rcti:printcom:1.1.0'
+	compile 'es.rcti:printcom:1.1.0'
 
 ### Step 3: Let's use the library
 
-	On your MainActivity.java or *.java where you want to place it.
-	Write this lines.
+On your MainActivity.java or *.java where you want to place it.
+Write this lines.
 
-		//Note: This lines could be inside of onclick implementation of a button
-		//to be executed on demand
+	//Note: This lines could be inside of onclick implementation of a button
+	//to be executed on demand
 
-		//New instance
-		StructReport msr = new StructReport();
+	//New instance
+	StructReport msr = new StructReport();
 
-        //Some previous configuration
-        msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
-        msr.addTextBold(false);
-        msr.addTextUnderlined(false);
-        msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
+    //Some previous configuration
+    msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+    msr.addTextBold(false);
+    msr.addTextUnderlined(false);
+    msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
 
-        //Print some text
-        msr.addText("Hello World!");
+    //Print some text
+    msr.addText("Hello World!");
 
-        //Instruction to cut paper
-        msr.addCut();
+    //Instruction to cut paper
+    msr.addCut();
 
-        //Instruction to send to Printer+ to be printed.
-        PrintTool.sendOrder(MainActivity.this, msr);
+    //Instruction to send to Printer+ to be printed.
+    PrintTool.sendOrder(MainActivity.this, msr);
 
 ## Specifications
 	
-	Printer+ works on devices with Android API 15 or higher.
+Printer+ works on devices with Android API 15 or higher.
 
-	This SDK currently serves for the following:
+This SDK currently serves for the following:
 
 **Print Text**: 	Unicode characters, use your thermal printer without any limitation 
 of code pages to print any character on any language.
@@ -105,51 +105,92 @@ on some models we have place one by default to work fine.
 
 **Brands and models**:
 
-	Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
-	Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
-	Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
+Epson: WiFi, USB and Bluetooth. Most models. Tested on TM-T88IV.
+Bixolon: WiFi, USB and Bluetooth. Most models. Tested on SRP-350II Plus
+Zjiang: Bluetooth. Most models. Tested on 5802LD, 8001LD and HS-589TAI
 
 ## Advanced usage
 
 	//This examples requires this imports
-		import es.rcti.printerplus.printcom.models.PrintTool;
-		import es.rcti.printerplus.printcom.models.StructReport;
+	import es.rcti.printerplus.printcom.models.PrintTool;
+	import es.rcti.printerplus.printcom.models.StructReport;
 
-	You need an instance of StructReport
+You need an instance of StructReport
 
-		//java code
-		StructReport msr = new StructReport();
+	//java code
+	StructReport msr = new StructReport();
 	
 ### How to PRINT TEXT
 
-		//To align the text you can use one of this three
-		//ALIGNMENT_CENTER, ALIGNMENT_LEFT or ALIGNMENT_RIGHT
-		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER ); //Example with center alignment
+	//To align the text you can use one of this three
+	//ALIGNMENT_CENTER, ALIGNMENT_LEFT or ALIGNMENT_RIGHT
+	msr.addItemAlignment( StructReport.ALIGNMENT_CENTER ); //Example with center alignment
 
-		//To enable or disable bolding use
-		msr.addTextBold(false);
+	//To enable or disable bolding use
+	msr.addTextBold(false);
 
-		//To enable or disable underline use
-		msr.addTextUnderlined(false);
+	//To enable or disable underline use
+	msr.addTextUnderlined(false);
 
-		//To enable or disable reverse mode use
-		msr.addTextReverseMode(false);
+	//To enable or disable reverse mode use
+	msr.addTextReverseMode(false);
 
-		//To set font size, ther are 8 sizes, this goes since SIZE_FONT_1 to SIZE_FONT_8
-		msr.addItemSizeFont( StructReport.SIZE_FONT_1 );
+	//To set font size, ther are 8 sizes, this goes since SIZE_FONT_1 to SIZE_FONT_8
+	msr.addItemSizeFont( StructReport.SIZE_FONT_1 );
 
-		//To print text with the previous configuration use
-		msr.addText("Hello");
+	//To print text with the previous configuration use
+	msr.addText("Hello");
 
-		//To send cut order use this.
-		msr.addCut();
+	//To send cut order use this.
+	msr.addCut();
 
-		//To send this instruction to Printer+ use
-		PrintTool.sendOrder(MainActivity.this, msr);
+	//To send this instruction to Printer+ use
+	PrintTool.sendOrder(MainActivity.this, msr);
 
+**Another example: Printing text on columns**
 
+If you know how to use String format of java you can do it easily.
 
-**Another example of print text with unicode wrote on code**
+	msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
+    msr.addItemSizeFont(StructReport.SIZE_FONT_2);
+    msr.addText("MY BUSINESS");
+    msr.addItemSizeFont(StructReport.SIZE_FONT_1);
+    msr.addText("my current address - postal code");
+    msr.addText("my phone - email address");
+    msr.addText("\n");
+    msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
+    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+            "DESCRIPTION",
+            "QUANTITY",
+            "PRICE"));
+    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+            "SALE ITEM 1",
+            "1.00",
+            "2.75€"));
+    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+            "SALE ITEM 2",
+            "5.00",
+            "0.99€"));
+    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+            "SALE ITEM 3",
+            "3.00",
+            "9.99€"));
+    msr.addText("\n");
+    msr.addItemAlignment(StructReport.ALIGNMENT_RIGHT);
+    msr.addItemSizeFont(StructReport.SIZE_FONT_2);
+    msr.addText("TOTAL: "+"37.67");
+    msr.addItemSizeFont(StructReport.SIZE_FONT_1);
+    msr.addText("\n");
+    msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
+    msr.addText("Thank you very much!");
+    msr.addCut();
+	PrintTool.sendOrder(MainActivity.this, msr);
+
+This is the output
+
+![Formatted text](/img/text_format.jpg)
+
+**Another example: Printing unicode text wrote on code (programmatically)**
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +223,10 @@ on some models we have place one by default to work fine.
         return new String(Character.toChars(unicode));
     }		
 
+This is the output
+
+![Text with emoji](/img/text_and_emoji.jpg)
+
 **Note:** to print unicode from a EditText, you don't have to do anything.
 
 	//Example getting content from a EditText with unicode characters
@@ -191,22 +236,22 @@ on some models we have place one by default to work fine.
 
 ### How to PRINT BARCODES
 
-	Print Barcodes is so easy. You have the following features to setting up your barcode
-	-HRI: below, above, both and none
-	-ALIGNMENT: left, center and right.
-	-TYPE: code93, code128, ITF, EAN13, ..., etc.
-	-HEIGHT and WIDTH
+Print Barcodes is so easy. You have the following features to setting up your barcode
+-HRI: below, above, both and none
+-ALIGNMENT: left, center and right.
+-TYPE: code93, code128, ITF, EAN13, ..., etc.
+-HEIGHT and WIDTH
 
-	Example of barcode with HRI below
+Example of barcode with HRI below
 		
-		//By default each brand of printer are set to a barcode which is working fine, by
-		//this reason if you want is not necessary to set a type.
+	//By default each brand of printer are set to a barcode which is working fine, by
+	//this reason if you want is not necessary to set a type.
 
-		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
-		msr.addBarcodeHRI( StructReport.BARCODE_HRI_BELOW );
-		msr.addBarcodeData( "1234567890128" );
-		msr.addCut();
-		PrintTool.sendOrder(MainActivity.this, msr);
+	msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+	msr.addBarcodeHRI( StructReport.BARCODE_HRI_BELOW );
+	msr.addBarcodeData( "1234567890128" );
+	msr.addCut();
+	PrintTool.sendOrder(MainActivity.this, msr);
 
 ### How to PRINT IMAGES
 
@@ -235,13 +280,13 @@ on some models we have place one by default to work fine.
 
 Please contact us for any suggestion.
 
-	email: soporte@rcti.es
+e-mail: soporte@rcti.es
 
 ## Visit us
 
 Find us at: 
 
-	https://www.rcti.es
+website: https://www.rcti.es
 
 
 
