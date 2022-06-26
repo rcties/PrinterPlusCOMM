@@ -18,9 +18,9 @@ This is a POS+ receipt implementated with this SDK.
 
 ## Download
 
-Download the latest version from jcenter via Gradle:
+Download the latest version:
 
-	compile 'es.rcti:printcom:1.1.0'
+	https://github.com/rcties/PrinterPlusCOMM/blob/master/DemoPrinterplus/app/libs/printcom.aar
 
 ## License
 
