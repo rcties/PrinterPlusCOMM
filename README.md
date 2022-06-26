@@ -85,8 +85,6 @@ On your build.gradle add this line (autodownload).
 	//Print some text
 	msr.addText("Hello World!");
 
-	//Instruction to cut paper
-	msr.addCut();
 
 	//Instruction to send to Printer+ to be printed.
 	PrintTool.sendOrder(MainActivity.this, msr);
@@ -146,9 +144,6 @@ You need an instance of StructReport
 	//To print text with the previous configuration use
 	msr.addText("Hello");
 
-	//To send cut order use this.
-	msr.addCut();
-
 	//To send this instruction to Printer+ use
 	PrintTool.sendOrder(MainActivity.this, msr);
 
@@ -188,7 +183,7 @@ If you know how to use String format of java you can do it easily.
 	msr.addText("\n");
 	msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
 	msr.addText("Thank you very much!");
-	msr.addCut();
+	
 	PrintTool.sendOrder(MainActivity.this, msr);
 
 This is the output
@@ -217,7 +212,6 @@ This is the output
                 //TEXT PRINT
                 msr.addText("Good Job! "+getEmojiByUnicode(0x1f44D));
 
-                msr.addCut();
 
                 PrintTool.sendOrder(MainActivity.this, msr);
             }
@@ -255,7 +249,7 @@ Example of barcode with HRI below
 	msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
 	msr.addBarcodeHRI( StructReport.BARCODE_HRI_BELOW );
 	msr.addBarcodeData( "1234567890128" );
-	msr.addCut();
+	
 	PrintTool.sendOrder(MainActivity.this, msr);
 
 ### How to PRINT IMAGES
@@ -270,14 +264,14 @@ Example of barcode with HRI below
 
 		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
 		msr.addImagePath("your/path/to/file/*.png"); // PNGs works on most cases
-		msr.addCut();
+		
 		PrintTool.sendOrder(MainActivity.this, msr);
 
 	-Bitmap:
 
 		msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
 		msr.addImageBitmap( myBitmapVar );
-		msr.addCut();
+		
 		PrintTool.sendOrder(MainActivity.this, msr);
 
 
