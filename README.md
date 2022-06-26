@@ -54,16 +54,21 @@ You can get it from google play:
 
 ![Download Link](/img/qr_download.png)
 
-### Step 2: Download Module to your project
+### Step 2: Download Module to your project *****
+
+The module is printcom.aar which must be set on libs folder of project like in example demo project.
+https://github.com/rcties/PrinterPlusCOMM/blob/master/DemoPrinterplus/app/libs/printcom.aar
+![printcom_arr](https://user-images.githubusercontent.com/26625075/175808798-2bab0fd9-3901-4884-9005-5dd46cb4dea1.jpg)
+
 
 On your build.gradle add this line (autodownload).
 
-	compile 'es.rcti:printcom:1.1.0'
+	implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
 ### Step 3: Let's use the library
 
-On your MainActivity.java or *.java where you want to place it.
-Write this lines.
+	On your MainActivity.java or *.java where you want to place it.
+	Write this lines.
 
 	//Note: This lines could be inside of onclick implementation of a button
 	//to be executed on demand
@@ -71,20 +76,20 @@ Write this lines.
 	//New instance
 	StructReport msr = new StructReport();
 
-    //Some previous configuration
-    msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
-    msr.addTextBold(false);
-    msr.addTextUnderlined(false);
-    msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
+	//Some previous configuration
+	msr.addItemAlignment( StructReport.ALIGNMENT_CENTER );
+	msr.addTextBold(false);
+	msr.addTextUnderlined(false);
+	msr.addItemSizeFont( StructReport.SIZE_FONT_3 );
 
-    //Print some text
-    msr.addText("Hello World!");
+	//Print some text
+	msr.addText("Hello World!");
 
-    //Instruction to cut paper
-    msr.addCut();
+	//Instruction to cut paper
+	msr.addCut();
 
-    //Instruction to send to Printer+ to be printed.
-    PrintTool.sendOrder(MainActivity.this, msr);
+	//Instruction to send to Printer+ to be printed.
+	PrintTool.sendOrder(MainActivity.this, msr);
 
 ## Specifications
 	
@@ -101,7 +106,7 @@ with max-width 400 pixels to work on most printers.
 **Print Barcodes**: You can select and print different type of barcode to print, but 
 on some models we have place one by default to work fine.
 
-**Print QR**: NOT WORKING YET. We will add this feature in a few days.
+**Print QR**: Yout can print any qr from any string.
 
 **Brands and models**:
 
@@ -152,38 +157,38 @@ You need an instance of StructReport
 If you know how to use String format of java you can do it easily.
 
 	msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
-    msr.addItemSizeFont(StructReport.SIZE_FONT_2);
-    msr.addText("MY BUSINESS");
-    msr.addItemSizeFont(StructReport.SIZE_FONT_1);
-    msr.addText("my current address - postal code");
-    msr.addText("my phone - email address");
-    msr.addText("\n");
-    msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
-    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+	msr.addItemSizeFont(StructReport.SIZE_FONT_2);
+	msr.addText("MY BUSINESS");
+	msr.addItemSizeFont(StructReport.SIZE_FONT_1);
+	msr.addText("my current address - postal code");
+	msr.addText("my phone - email address");
+	msr.addText("\n");
+	msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
+	msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
             "DESCRIPTION",
             "QUANTITY",
             "PRICE"));
-    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+	msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
             "SALE ITEM 1",
             "1.00",
             "2.75€"));
-    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+	msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
             "SALE ITEM 2",
             "5.00",
             "0.99€"));
-    msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
+	msr.addText(String.format(Locale.US, "%-13.13s %8.8s %8.8s",
             "SALE ITEM 3",
             "3.00",
             "9.99€"));
-    msr.addText("\n");
-    msr.addItemAlignment(StructReport.ALIGNMENT_RIGHT);
-    msr.addItemSizeFont(StructReport.SIZE_FONT_2);
-    msr.addText("TOTAL: "+"37.67");
-    msr.addItemSizeFont(StructReport.SIZE_FONT_1);
-    msr.addText("\n");
-    msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
-    msr.addText("Thank you very much!");
-    msr.addCut();
+	msr.addText("\n");
+	msr.addItemAlignment(StructReport.ALIGNMENT_RIGHT);
+	msr.addItemSizeFont(StructReport.SIZE_FONT_2);
+	msr.addText("TOTAL: "+"37.67");
+	msr.addItemSizeFont(StructReport.SIZE_FONT_1);
+	msr.addText("\n");
+	msr.addItemAlignment(StructReport.ALIGNMENT_CENTER);
+	msr.addText("Thank you very much!");
+	msr.addCut();
 	PrintTool.sendOrder(MainActivity.this, msr);
 
 This is the output
